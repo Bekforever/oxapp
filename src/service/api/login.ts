@@ -1,12 +1,17 @@
-import type { LoginBody } from '@/types/login'
+import type { LoginBody, LoginResponse } from '@/types/login'
+import qs from 'qs'
 import { http } from '../http'
 
 export const loginApi = {
 	login: async (body: LoginBody) => {
-		const { data } = await http.post('security/auth_check', {
+		const formData = qs.stringify({
 			...body,
 			_subdomain: 'toko',
 		})
+		const { data } = await http.post<LoginResponse>(
+			'security/auth_check',
+			formData
+		)
 		return data
 	},
 }

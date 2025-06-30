@@ -1,36 +1,36 @@
 .container {
-    display: flex;
-    height: 100vh;
-    overflow: hidden;
+	display: flex;
+	height: 100vh;
+	overflow: hidden;
 }
 
 .imageSection {
-    flex: 1.2;
-    background-color: #f0f2f5;
+	flex: 1.2;
+	background-color: #f0f2f5;
 }
 
 .image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 .formSection {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #ffffff;
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #ffffff;
 }
 
 .card {
-    width: 100%;
-    max-width: 400px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+	width: 100%;
+	max-width: 500px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	border-radius: 8px;
 }
 
 .title {
-    text-align: center;
-    margin-bottom: 24px;
+	text-align: center;
+	margin-bottom: 24px;
 }

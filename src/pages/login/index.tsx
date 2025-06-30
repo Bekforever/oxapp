@@ -1,17 +1,16 @@
 import { useLoginMutation } from '@/service/queries/login'
 import type { LoginBody } from '@/types/login'
 import { LockOutlined, UserOutlined } from '@ant-design/icons'
-import { Button, Card, Form, Input, Typography } from 'antd'
+import { Alert, Button, Card, Form, Input, Typography } from 'antd'
 import styles from './login.module.css'
 
 const { Title } = Typography
 
 export const LoginPage = () => {
-	const { mutate: login } = useLoginMutation()
+	const { mutate: login, isError, error, isPending } = useLoginMutation()
 	const onFinish = (values: LoginBody) => {
 		login(values)
 	}
-
 	return (
 		<div className={styles.container}>
 			<div className={styles.imageSection}>
@@ -27,6 +26,13 @@ export const LoginPage = () => {
 					<Title level={3} className={styles.title}>
 						Вход
 					</Title>
+					{isError && (
+						<Alert
+							style={{ margin: '20px 0' }}
+							message={error?.response?.data?.message}
+							type='error'
+						/>
+					)}
 					<Form layout='vertical' onFinish={onFinish}>
 						<Form.Item<LoginBody>
 							label='Никнейм'
@@ -52,7 +58,12 @@ export const LoginPage = () => {
 						</Form.Item>
 
 						<Form.Item>
-							<Button type='primary' htmlType='submit' block>
+							<Button
+								loading={isPending}
+								type='primary'
+								htmlType='submit'
+								block
+							>
 								Войти
 							</Button>
 						</Form.Item>

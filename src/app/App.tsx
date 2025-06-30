@@ -1,11 +1,34 @@
-import { HomePage, LoginPage } from '@/pages'
-import { Route, Routes } from 'react-router-dom'
+import { AppLayout } from '@/components/layout'
+import { ProtectedRoute } from '@/components/protected-route'
+import { ROUTES } from '@/constants/routes'
+import { HomePage, LoginPage, SearchPage } from '@/pages'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+
+const router = createBrowserRouter([
+	{
+		path: ROUTES.HOME,
+		element: (
+			<ProtectedRoute>
+				<AppLayout />
+			</ProtectedRoute>
+		),
+		children: [
+			{
+				path: ROUTES.HOME,
+				element: <HomePage />,
+			},
+			{
+				path: ROUTES.SEARCH,
+				element: <SearchPage />,
+			},
+		],
+	},
+	{
+		path: ROUTES.LOGIN,
+		element: <LoginPage />,
+	},
+])
 
 export const App = () => {
-	return (
-		<Routes>
-			<Route path='/' element={<HomePage />} />
-			<Route path='/login' element={<LoginPage />} />
-		</Routes>
-	)
+	return <RouterProvider router={router} />
 }
