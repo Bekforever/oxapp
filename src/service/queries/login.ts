@@ -1,6 +1,6 @@
-import { TOKEN } from '@/constants'
 import type { ErrorResponse } from '@/types'
 import type { LoginBody, LoginResponse } from '@/types/login'
+import { TOKEN } from '@/utils/constants'
 import { useMutation } from '@tanstack/react-query'
 import { notification } from 'antd'
 import type { AxiosError } from 'axios'

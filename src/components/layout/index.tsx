@@ -1,4 +1,4 @@
-import { ROUTES } from '@/constants/routes'
+import { ROUTES } from '@/utils/constants/routes'
 import { HomeOutlined, SearchOutlined } from '@ant-design/icons'
 import { Layout, Menu, theme, Typography } from 'antd'
 import { Outlet, useLocation, useNavigate } from 'react-router-dom'
