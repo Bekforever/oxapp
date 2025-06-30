@@ -6,6 +6,8 @@ import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 const { Content, Sider } = Layout
 const { Title } = Typography
 
+const SIDER_WIDTH = 220
+
 const items = [
 	{
 		key: ROUTES.HOME,
@@ -27,13 +29,19 @@ export const AppLayout = () => {
 	const location = useLocation()
 
 	return (
-		<Layout style={{ minHeight: '100vh', padding: 24 }}>
+		<>
 			<Sider
 				theme='light'
+				width={SIDER_WIDTH}
 				style={{
-					padding: '30px 0',
+					position: 'fixed',
 					height: 'calc(100vh - 50px)',
+					left: 24,
+					top: 24,
+					padding: '30px 0',
 					borderRadius: borderRadiusLG,
+					background: colorBgContainer,
+					zIndex: 10,
 				}}
 			>
 				<Title
@@ -54,7 +62,14 @@ export const AppLayout = () => {
 					onClick={({ key }) => navigate(key)}
 				/>
 			</Sider>
-			<Layout>
+			<Layout
+				style={{
+					minHeight: '100vh',
+					padding: 24,
+					paddingLeft: SIDER_WIDTH + 30,
+					background: '#e8eff5',
+				}}
+			>
 				<Content style={{ margin: '0 16px' }}>
 					<div
 						style={{
@@ -68,6 +83,6 @@ export const AppLayout = () => {
 					</div>
 				</Content>
 			</Layout>
-		</Layout>
+		</>
 	)
 }

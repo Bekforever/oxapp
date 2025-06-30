@@ -1,15 +1,15 @@
 export const AppTheme = {
 	token: {
-		colorBgContainer: '#e6e6e6',
+		colorBgContainer: '#f8fafc',
 		colorPrimary: '#4e42ef',
 		colorInfo: '#4e42ef',
 		sizeStep: 4,
 		sizeUnit: 4,
-		borderRadius: 12,
+		borderRadius: 8,
 	},
 	components: {
 		Layout: {
-			siderBg: '#3e3e3e',
+			siderBg: '#E2E8F0',
 		},
 	},
 }
