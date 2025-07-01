@@ -64,22 +64,28 @@ export const ProductDetailPage = () => {
 					</Descriptions.Item>
 				</Descriptions>
 
-				{product.images && product.images.length > 0 && (
-					<>
-						<Divider orientation='left'>Изображения</Divider>
-						<div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-							{product.images.map(img => (
-								<Image
-									key={img.id}
-									width={120}
-									src={img.urls?.original || ''}
-									alt={img.originalName}
-									placeholder
-								/>
-							))}
-						</div>
-					</>
-				)}
+				{product.images &&
+					product.images?.some(img => img.urls?.original !== null) &&
+					product.images.length > 0 && (
+						<>
+							<Divider orientation='left'>Изображения</Divider>
+							<div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+								{product.images.map(img => {
+									if (img.urls?.original !== null) {
+										return (
+											<Image
+												key={img.id}
+												width={120}
+												src={img.urls?.original || ''}
+												alt={img.originalName}
+												placeholder
+											/>
+										)
+									}
+								})}
+							</div>
+						</>
+					)}
 			</Card>
 		</>
 	)

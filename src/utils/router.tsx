@@ -1,7 +1,6 @@
 import { AppLayout } from '@/components/layout'
 import { ProtectedRoute } from '@/components/protected-route'
-import { HomePage, LoginPage, SearchPage } from '@/pages'
-import { ProductDetailPage } from '@/pages/product-details'
+import { HomePage, LoginPage, ProductDetailPage, SearchPage } from '@/pages'
 import { ROUTES } from '@/utils/constants/routes'
 import { createBrowserRouter } from 'react-router-dom'
 
